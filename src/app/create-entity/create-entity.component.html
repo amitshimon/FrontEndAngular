@@ -1,0 +1,43 @@
+<h1>Create New Entity</h1>
+<div class="form-container">
+  <form class="form" #newEntityForm="ngForm" (ngSubmit)="saveEntity(newEntityForm.value)" autocomplete="off" novalidate>
+    <div class="form-input" [ngClass]="{'error': newEntityForm.controls.name?.invalid && newEntityForm.controls.name?.touched}">
+      <label [ngClass]="{'mini-label':this.CleanName}" for="name">Entity Name</label>
+      <em *ngIf="newEntityForm.controls.name?.invalid && (newEntityForm.controls.name?.touched)">Required</em>
+      <input (focus)=cleanLabel(1) (keyup)=cleanLabel(1) (focusout)="resetName($event)" (ngModel)="newEntity.name" name="name"
+        required maxlength="100" id="name" type="text" class="form-control" />
+    </div>
+    <div class="form-input" [ngClass]="{'error': newEntityForm.controls.date?.invalid && newEntityForm.controls.date?.touched}">
+      <em *ngIf="newEntityForm.controls.date?.invalid && (newEntityForm.controls.date?.touched)">Required</em>
+      <input (ngModel)="newEntity.date" name="date" required id="EntityDate" type="date" class="form-control" />
+    </div>
+    <div class="form-input" [ngClass]="{'error': newEntityForm.controls.description?.invalid && newEntityForm.controls.description?.touched}">
+      <label [ngClass]="{'mini-label':this.CleanDescription}" for="Entitydescription">Entity Description</label>
+      <em *ngIf="newEntityForm.controls.description?.invalid && (newEntityForm.controls.description?.touched)">Required</em>
+      <input (focus)=cleanLabel(2) (keyup)=cleanLabel(2) (focusout)="resetDesc($event)" (ngModel)="newEntity.description"
+        name="description" required id="Entitydescription" type="text" class="form-control" />
+    </div>
+    <div class="form-input" [ngClass]="{'error': newEntityForm.controls.amount?.invalid && newEntityForm.controls.amount?.touched}">
+      <label [ngClass]="{'mini-label':this.CleanAmount}" for="Entityamount">Entity Amount</label>
+      <em *ngIf="newEntityForm.controls.amount?.invalid && (newEntityForm.controls.amount?.touched)">Required</em>
+      <em *ngIf="this.IsLengthBig">Amount length to big</em>
+      <input (focus)=cleanLabel(3) (keyup)=cleanLabel(3) (focusout)="resetAmo($event)" (input)="validate($event, newEntityForm)"
+        [(ngModel)]="newEntity.amount" name="amount" required id="Entityamount" type="number" class="form-control" />
+    </div>
+    <div>
+      <div class="radio-container">
+        <label class="container-is-private" for="isPrivate">Is Private <i class="fas fa-user-secret"></i></label>
+        <label class="isprivate-style">True</label>
+        <input (ngModel)="newEntity.isPrivate" name="isPrivate" id="isPrivate" type="radio" value="true" checked class="form-control" />
+        <label class="isprivate-style">False</label>
+        <input (ngModel)="newEntity.isPrivate" name="isPrivate" id="isPrivate" type="radio" value="false"  class="form-control" />
+      </div>
+    </div>
+    <div class="buuton-container">
+      <button type="submit" [disabled]="newEntityForm.invalid" class="btn-save">Save <i class="fas fa-check"></i></button>
+      <button type="button" class="btn-cancel" (click)="cancel()">Cancel
+        <i class="fa fa-trash" aria-hidden="true"></i></button>
+    </div>
+
+  </form>
+</div>

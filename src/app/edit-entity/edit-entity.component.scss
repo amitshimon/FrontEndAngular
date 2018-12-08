@@ -1,0 +1,152 @@
+.form-container {
+    display: flex;
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+    padding: 0;
+    margin: 0;
+    align-items: center;
+    justify-content: center;
+  }
+  
+  .form {
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.9);
+    display: flex;
+    flex-direction: column;
+    width: 450px;
+    height: 450px;
+    justify-content: center;
+    align-items: center;
+    background-color: #232F3E;
+  }
+  
+  .form-input {
+    flex-direction: column;
+    padding: 10px;
+    flex-basis: auto;
+  }
+  
+  input[type="date"],
+  input[type="text"],
+  input[type="number"] {
+    box-sizing: border-box;
+    width: 300px;
+    height: 35px;
+    background: #232F3E;
+    margin: 0 0 5px;
+    padding: 10px;
+    outline: none;
+    border: none;
+    border-bottom: 2px solid;
+    color: black;
+  }
+  
+  h1 {
+    text-align: center;
+    text-shadow: 2px 2px 4px #000;
+  }
+  
+  .error input {
+    border-bottom-color: rgb(189, 5, 5);
+  }
+  
+  button {
+    height: 40px;
+    width: 130px;
+    font-size: 18px;
+    font-weight: bold;
+    font-family: 'Courier New', Courier, monospace;
+    color: aliceblue;
+    border-radius: 2px;
+    border: none;
+    text-transform: uppercase;
+  }
+  
+  .btn-save {
+    margin-right: 30px;
+    margin-top: 90px;
+    background-color: #337AB7;
+  }
+  
+  .btn-cancel {
+    margin-left: 10px;
+    background-color: #FF6600;
+  }
+  
+  .form-input label {
+    position: absolute;
+    color: aliceblue;
+    transition: .5s;
+  }
+  
+  .mini-label {
+    font-size: 10px;
+  }
+  
+  ::-webkit-datetime-edit-text {
+    color: cornsilk;
+    padding: 0 0.3em;
+  }
+  
+  ::-webkit-datetime-edit-month-field {
+    color: cornsilk;
+  }
+  
+  ::-webkit-datetime-edit-day-field {
+    color: cornsilk;
+  }
+  
+  ::-webkit-datetime-edit-year-field {
+    color: cornsilk;
+  }
+  
+  ::-webkit-inner-spin-button {
+    display: none;
+  }
+  
+  ::-webkit-calendar-picker-indicator {
+    background: orange;
+  }
+  
+  .container-is-private {
+    color: cornsilk;
+    margin-right: 68px;
+  }
+  
+  .isprivate-style {
+    color: cornsilk;
+  }
+  
+  input[type="radio"] {
+    margin-right: 30px;
+    border: 2px solid white;
+  }
+  
+  .radio-container {
+    margin-top: 25px;
+  
+  }
+  
+  input[type='radio']:checked:after {
+    width: 11px;
+    height: 11px;
+    border-radius: 15px;
+    top: -2px;
+    left: -1px;
+    position: relative;
+    transition: border 280ms;
+    background-color: #ff0000;
+    content: '';
+    display: inline-block;
+    visibility: visible;
+    border: 2px solid white;
+    transition: border-color ease 1580ms;
+  }
+  
+  em {
+    font-size: 11px;
+    float: right;
+    color: rgb(238, 8, 77);
+    padding-left: 7px;
+  }
+  

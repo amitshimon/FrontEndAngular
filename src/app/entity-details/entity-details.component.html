@@ -1,0 +1,67 @@
+<div class="h1-header">
+  <h1>Entity Details</h1>
+</div>
+<div class="container">
+  <div class="card">
+    <div class="date">
+      <div class="datewrapper">
+        <p>{{webEntity?.date | date : 'dd/MM/yyyy'}}</p>
+      </div>
+    </div>
+    <div class="name">
+      <p name="name">{{webEntity?.name}}</p>
+    </div>
+    <hr />
+    <div class="is-private">
+      <div class="labelwrrap">
+        <label for="" class="">Private:<i id="pri-icon" class="fas fa-lock"></i></label>
+      </div>
+      <div class="pwrrap">
+        <p>{{webEntity?.isPrivate}}</p>
+      </div>
+    </div>
+    <div class="amount">
+      <div class="labelwrrap">
+        <label for="" class="">Quantity:</label>
+      </div>
+      <div class="pwrrap">
+        <p>{{webEntity?.amount}}</p>
+      </div>
+    </div>
+    <div class="description">
+      <div class="labelwrrap-desc">
+        <label for="" class="desc-la">Description:</label>
+      </div>
+      <div class="pwrrap-desc">
+        <p>
+          {{webEntity?.description}} Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem
+          Ipsum 
+        </p>
+      </div>
+    </div>
+    <div class="bun-con" *ngIf="!confirmDelete">
+      <div class="edit">
+        <button [routerLink]="['/edit', webEntity?.id]" class="btn-edit">Edit <i class="far fa-edit"></i></button>
+      </div>
+      <div class="delete">
+        <button (click)="confirmDelete = true" class="btn-delet">Delete <i class="fa fa-trash" aria-hidden="true"></i></button>
+      </div>
+
+    </div>
+    <div class="bun-con" *ngIf="confirmDelete">
+      <div class="con-warnning">
+        <span class="danger">
+          Are You Sure You Want To Delete?
+        </span>
+        <div class="btn-confirm-con">
+          <div class="edit">
+            <button (click)="confirmDelete = false" class="btn-edit">Cancel <i class="far fa-edit"></i></button>
+          </div>
+          <div class="delete">
+            <button (click)="deleteEntity()" class="btn-delet">Yes <i class="fa fa-trash" aria-hidden="true"></i></button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

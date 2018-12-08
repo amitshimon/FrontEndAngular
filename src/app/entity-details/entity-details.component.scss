@@ -1,0 +1,151 @@
+.container {
+  height: 100%;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+}
+#pri-icon{
+  position: absolute;
+}
+.card {
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 1.9);
+  display: flex;
+  flex-direction: column;
+  width: 350px;
+  min-height: 200px;
+  justify-content: space-evenly;
+  background-color: #232F3E;
+  color: aliceblue;
+  font-family: 'Courier New', Courier, monospace;
+  max-height: fit-content;
+  border-radius: 5px;
+  padding: 10px;
+}
+
+.datewrapper {
+  margin-right: 15px;
+  padding: 5px;
+
+}
+
+.name {
+  display: flex;
+  flex-flow: row;
+  justify-content: center;
+  font-size: 25px;
+  font-weight: bold;
+  justify-content: flex-start;
+}
+
+.name p {
+  margin-top: 0;
+  margin-left: 11px;
+  margin-bottom: 0;
+}
+
+.date {
+  display: flex;
+  flex-flow: row;
+  justify-content: flex-end;
+  margin-top: 5px;
+}
+
+.date p {
+  color: aliceblue;
+  font-size: 15px;
+  margin-top: 7px;
+}
+
+h1 {
+  text-align: center;
+  text-shadow: 2px 2px 4px #000;
+}
+
+.labelwrrap {
+  width: 50%;
+}
+
+.pwrrap {
+  width: 50%;
+}
+
+.amount {
+  display: flex;
+  flex-flow: row;
+  justify-content: space-evenly;
+}
+
+.labelwrrap-desc {
+  width: 100%;
+}
+
+label {
+  margin-top: 13px;
+  width: 60%;
+  float: left;
+  font-weight: 900;
+  margin-left: 10px;
+  color: #000000;
+}
+
+.description {
+  display: flex;
+  flex-flow: column;
+  white-space: normal;
+  word-wrap: break-word;
+}
+
+.pwrrap-desc {
+  padding: 10px
+}
+
+.is-private {
+  display: flex;
+  flex-flow: row;
+  justify-content: center;
+
+}
+
+.bun-con {
+  display: flex;
+  flex-flow: row;
+  // margin-top: 35px;
+  margin-bottom: 20px;
+  justify-content: space-evenly;
+}
+
+button {
+  height: 40px;
+  width: 130px;
+  font-size: 18px;
+  font-weight: bold;
+  font-family: 'Courier New', Courier, monospace;
+  color: aliceblue;
+  border-radius: 2.5px;
+  border: none;
+  text-transform: uppercase;
+}
+
+.btn-delet {
+  background-color: rgb(189, 5, 5);
+  margin-left: 25px;
+}
+
+.btn-edit {
+  background-color: #337AB7;
+}
+.btn-confirm-con{
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+}
+hr {
+  width: 100%;
+}
+.danger{
+   color: rgb(189, 5, 5);
+   font-weight: bold; 
+}

@@ -1,0 +1,14 @@
+<ul class="container">
+  <li><a [routerLink]="['/entityList']">Home</a></li>
+  <li><a [routerLink]="['/entity/new']">Create Entity</a></li>
+  <li id='search' class="dropdown">
+    <input placeholder="Search" class="dropbtn" (keyup)=search($event) autocomplete="off" />
+    <button  class="search-btn"><i class="fa fa-search"></i></button>
+    <div class="dropdown-content" *ngIf="whenSearch">
+      <div class="showcontent" *ngFor="let enName of filterEntitysName">
+        <a class="link" (focusout)="reset()" [routerLink]="['/details', enName.id]">{{enName.name}}</a>
+        <hr>
+      </div>
+    </div>
+  </li>
+</ul>

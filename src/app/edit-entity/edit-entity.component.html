@@ -1,0 +1,43 @@
+<h1>Edit Entity</h1>
+<div class="form-container">
+  <form class="form" #webEntityForm="ngForm" (ngSubmit)="saveEntity(webEntityForm.value)" autocomplete="off" novalidate>
+    <div class="form-input" [ngClass]="{'error': webEntityForm.controls.name?.invalid && webEntityForm.controls.name?.touched}">
+      <label [ngClass]="{'mini-label':CleanName ||webEntity.name}" for="name">Entity Name</label>
+      <em *ngIf="webEntityForm.controls.name?.invalid && (webEntityForm.controls.name?.touched)">Required</em>
+      <input (focus)=cleanLabel(1) (keyup)=cleanLabel(1) (focusout)="resetName($event)" [(ngModel)]="webEntity.name"
+        name="name" required maxlength="100" id="name" type="text" class="form-control" />
+    </div>
+    <div class="form-input" [ngClass]="{'error': webEntityForm.controls.date?.invalid && webEntityForm.controls.date?.touched}">
+      <em *ngIf="webEntityForm.controls.date?.invalid && (webEntityForm.controls.date?.touched)">Required</em>
+      <input (ngModelChange)="webEntity.date = $event" [ngModel]="webEntity.date | date:'yyyy-MM-dd'" name="date" required id="EntityDate" type="date" class="form-control" />
+    </div>
+    <div class="form-input" [ngClass]="{'error': webEntityForm.controls.description?.invalid && webEntityForm.controls.description?.touched}">
+      <label [ngClass]="{'mini-label':CleanDescription||webEntity.description}" for="Entitydescription">Entity Description</label>
+      <em *ngIf="webEntityForm.controls.description?.invalid && (webEntityForm.controls.description?.touched)">Required</em>
+      <input (focus)=cleanLabel(2) (keyup)=cleanLabel(2) (focusout)="resetDesc($event)" [(ngModel)]="webEntity.description"
+        name="description" required id="Entitydescription" type="text" class="form-control" />
+    </div>
+    <div class="form-input" [ngClass]="{'error': webEntityForm.controls.amount?.invalid && webEntityForm.controls.amount?.touched}">
+      <label [ngClass]="{'mini-label':CleanAmount || webEntity.amount}" for="Entityamount">Entity Amount</label>
+      <em *ngIf="webEntityForm.controls.amount?.invalid && (webEntityForm.controls.amount?.touched)">Required</em>
+      <em *ngIf="IsLengthBig">Amount length to big</em>
+      <input (focus)=cleanLabel(3) (keyup)=cleanLabel(3) (focusout)="resetAmo($event)" (input)="validate($event, webEntityForm)"
+        [(ngModel)]="webEntity.amount" name="amount" required id="Entityamount" type="number" class="form-control" />
+    </div>
+    <div>
+      <div class="radio-container">
+        <label class="container-is-private" for="isPrivate">Is Private <i class="fas fa-user-secret"></i></label>
+        <label class="isprivate-style">True</label>
+        <input [(ngModel)]="webEntity.isPrivate" name="isPrivate" type="radio" [value]="true" class="form-control" />
+        <label class="isprivate-style">False</label>
+        <input [(ngModel)]="webEntity.isPrivate" name="isPrivate" type="radio" [value]="false" class="form-control" />
+      </div>
+    </div>
+    <div class="buuton-container">
+      <button type="submit" [disabled]="webEntityForm.invalid" class="btn-save">Save <i class="fas fa-check"></i></button>
+      <button type="button" class="btn-cancel" [routerLink]="['/details', webEntity.id]">Cancel
+        <i class="fa fa-trash" aria-hidden="true"></i></button>
+    </div>
+
+  </form>
+</div>
