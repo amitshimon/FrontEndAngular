@@ -10,10 +10,8 @@ export class LoggicService {
     cleanDescription: boolean = false;
     cleanName: boolean = false;
     isLengthBig: boolean = null;
-
+    pageDisplay: number = null;
     convaertDateToTicks(formvalue): number {
         return ((new Date(formvalue.date).getTime() * 10000) + 621355968000000000);
     }
-
-
 }
