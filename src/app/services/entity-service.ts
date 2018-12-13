@@ -20,12 +20,11 @@ export class EntityService {
   constructor(private http: HttpClient) { }
 
   handleError(error: HttpErrorResponse) {
-    debugger
     console.error('An error occurred:', error.error);
     return throwError("Method not implemented.");
   }
   private entityUrl = 'http://amitshimon.gearhostpreview.com/api/entity';
-
+  // private entityUrl = 'http://localhost:50311/api/entity'
   getEntity(): Observable<IEntityToDb[]> {
 
     if (this.entitys) {
@@ -57,16 +56,14 @@ export class EntityService {
         tap(data => {
           data.date = this.convertTicksToDate(data.date)
           this.entitys.push(data);
-          this.addNewEntity(entity);
+          this.addNewEntity(data);
         })
       );
   }
 
   updateEntity(entity: IEntityToDb): Observable<IEntityToDb> {
-
     const params = new HttpParams().set('id', entity.id.toString());
     const headers = new HttpHeaders().set('content-type', 'application/json');
-
     return this.http.put<IEntityToDb>(this.entityUrl + '/updateEntity/' + entity.id, entity, { headers, params });
   }
 
@@ -85,7 +82,7 @@ export class EntityService {
 
     var ticks = date;
     var ticksToMicrotime = ticks / 10000;
-    var epochMicrotimeDiff = 2208988800000;
+    var epochMicrotimeDiff = 62135597800000;
     var tickDate = new Date(ticksToMicrotime - epochMicrotimeDiff);
     return tickDate;
   }
