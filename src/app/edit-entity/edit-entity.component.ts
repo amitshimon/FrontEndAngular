@@ -19,7 +19,8 @@ export class EditEntityComponent implements OnInit, OnDestroy {
     amount: null,
     date: null,
     isPrivate: null,
-    name: null
+    name: null,
+    image: null
   };
 
   constructor(private route: ActivatedRoute,
@@ -112,6 +113,8 @@ export class EditEntityComponent implements OnInit, OnDestroy {
 
   }
   ngOnDestroy(): void {
-    this.sub.unsubscribe();
+    if (this.sub) {
+      this.sub.unsubscribe();
+    }
   }
 }
