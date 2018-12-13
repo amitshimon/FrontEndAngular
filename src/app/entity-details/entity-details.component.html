@@ -7,6 +7,9 @@
       <div class="datewrapper">
         <p>{{webEntity?.date | date : 'dd/MM/yyyy'}}</p>
       </div>
+      <div class="image-warraper">
+        <img class="image"[src]="webEntity?.image" style="max-width:50px;max-height:50px" />
+      </div>
     </div>
     <div class="name">
       <p name="name">{{webEntity?.name}}</p>
@@ -35,7 +38,7 @@
       <div class="pwrrap-desc">
         <p>
           {{webEntity?.description}} Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem
-          Ipsum 
+          Ipsum
         </p>
       </div>
     </div>
@@ -46,7 +49,6 @@
       <div class="delete">
         <button (click)="confirmDelete = true" class="btn-delet">Delete <i class="fa fa-trash" aria-hidden="true"></i></button>
       </div>
-
     </div>
     <div class="bun-con" *ngIf="confirmDelete">
       <div class="con-warnning">
